@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Zap, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import WorldMap from '@/components/WorldMap';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';
 import projectFintech from '@/assets/project-fintech.jpg';
 import projectSaas from '@/assets/project-saas.jpg';
@@ -55,10 +56,15 @@ const Home = () => {
     <div className="pt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-subtle" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-glow opacity-30 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-glow opacity-20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+        {/* World Map Background */}
+        <div className="absolute inset-0 opacity-20">
+          <WorldMap />
+        </div>
+        
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-subtle/80" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-glow opacity-20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-glow opacity-15 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 text-center">
           <div className="animate-slide-up">

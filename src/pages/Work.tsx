@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,7 @@ import projectFintech from '@/assets/project-fintech.jpg';
 import projectSaas from '@/assets/project-saas.jpg';
 
 const Work = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const projects = [
     // Web App
     {
@@ -195,6 +197,10 @@ const Work = () => {
   ];
 
   const categories = ['All', 'Web App', 'Shopify', 'Mobile App', 'Branding'];
+  
+  const filteredProjects = selectedCategory === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === selectedCategory);
 
   return (
     <div className="pt-20">
@@ -224,9 +230,10 @@ const Work = () => {
               {categories.map((category) => (
                 <Button
                   key={category}
-                  variant={category === 'All' ? 'default' : 'outline'}
+                  variant={category === selectedCategory ? 'default' : 'outline'}
                   size="sm"
-                  className={category === 'All' ? 'btn-premium' : 'btn-ghost-premium'}
+                  className={category === selectedCategory ? 'btn-premium' : 'btn-ghost-premium'}
+                  onClick={() => setSelectedCategory(category)}
                 >
                   {category}
                 </Button>
@@ -240,7 +247,7 @@ const Work = () => {
       <section className="px-6 sm:px-8 pb-32">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <Link
                 key={project.id}
                 to={`/project/${project.id}`}

@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Zap, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import WorldMap from '@/components/WorldMap';
+import InteractiveShapes from '@/components/InteractiveShapes';
+import FloatingOrbs from '@/components/FloatingOrbs';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';
 import projectFintech from '@/assets/project-fintech.jpg';
 import projectSaas from '@/assets/project-saas.jpg';
@@ -119,8 +121,9 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-32 px-6 sm:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-32 px-6 sm:px-8 overflow-hidden">
+        <FloatingOrbs count={4} />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
               What We <span className="text-gradient">Do</span>
@@ -204,8 +207,9 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-6 sm:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-32 px-6 sm:px-8 overflow-hidden">
+        <InteractiveShapes />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             Ready to Create Something <span className="text-gradient">Extraordinary</span>?
           </h2>

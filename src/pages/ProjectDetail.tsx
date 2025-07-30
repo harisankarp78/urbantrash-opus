@@ -12,7 +12,7 @@ const ProjectDetail = () => {
     'ecommerce-redesign': {
       title: 'E-commerce Transformation',
       category: 'Web Design & Development',
-      client: 'Fashion Forward Co.',
+      client: 'North Republic',
       year: '2024',
       duration: '12 weeks',
       team: '6 specialists',
@@ -30,13 +30,13 @@ const ProjectDetail = () => {
       testimonial: {
         quote: "Urban Trash completely transformed our online presence. The new website not only looks stunning but has dramatically improved our sales and customer satisfaction.",
         author: "Sarah Chen",
-        role: "CEO, Fashion Forward Co."
+        role: "CEO, North Republic"
       }
     },
     'fintech-app': {
       title: 'FinTech Mobile Experience',
       category: 'Mobile App Design',
-      client: 'SecureBank Pro',
+      client: 'City Fresh',
       year: '2024',
       duration: '16 weeks',
       team: '8 specialists',
@@ -54,13 +54,13 @@ const ProjectDetail = () => {
       testimonial: {
         quote: "The app Urban Trash created for us has set a new standard in mobile banking. Our users love it, and we've seen unprecedented engagement levels.",
         author: "Michael Rodriguez",
-        role: "CTO, SecureBank Pro"
+        role: "CTO, City Fresh"
       }
     },
     'saas-platform': {
       title: 'SaaS Platform Redesign',
       category: 'Product Design',
-      client: 'DataFlow Systems',
+      client: 'Asker Sweets KSA',
       year: '2024',
       duration: '20 weeks',
       team: '10 specialists',
@@ -78,7 +78,7 @@ const ProjectDetail = () => {
       testimonial: {
         quote: "Urban Trash transformed our complex platform into something our users actually enjoy using. The impact on our business has been extraordinary.",
         author: "Lisa Thompson",
-        role: "Head of Product, DataFlow Systems"
+        role: "Head of Product, Asker Sweets KSA"
       }
     }
   };

@@ -37,18 +37,18 @@ const Home = () => {
   const services = [
     {
       icon: Sparkles,
-      title: 'Brand Identity',
-      description: 'Creating memorable brands that resonate with your audience'
+      title: 'Mobile App Development',
+      description: 'Native and cross-platform mobile applications that engage users'
     },
     {
       icon: Zap,
-      title: 'Digital Experiences',
-      description: 'Crafting premium websites and applications that convert'
+      title: 'Web App Development',
+      description: 'Modern web applications and platforms built for scale'
     },
     {
       icon: Target,
-      title: 'Strategy & Consulting',
-      description: 'Data-driven strategies that drive business growth'
+      title: 'Tech Consultation & Virtual CTO',
+      description: 'Strategic tech guidance and business process automation'
     }
   ];
 
@@ -69,11 +69,11 @@ const Home = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 text-center">
           <div className="animate-slide-up">
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight">
-              We Create
-              <span className="block text-gradient text-glow">Digital Magic</span>
+      We Build
+              <span className="block text-gradient text-glow">Tech Solutions</span>
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Premium design agency crafting extraordinary digital experiences for forward-thinking brands worldwide.
+              Tech consultancy delivering comprehensive mobile apps, web apps, and business automation solutions for modern enterprises.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button asChild size="lg" className="btn-premium h-14 px-8 text-lg">
@@ -102,7 +102,7 @@ const Home = () => {
               What We <span className="text-gradient">Do</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We specialize in creating premium digital experiences that drive results and inspire action.
+              We specialize in mobile apps, web apps, tech consultation, virtual CTO services, and business process automation.
             </p>
           </div>
 

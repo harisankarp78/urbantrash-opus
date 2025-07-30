@@ -9,28 +9,52 @@ import projectSaas from '@/assets/project-saas.jpg';
 const Home = () => {
   const projects = [
     {
-      id: 'ecommerce-redesign',
-      title: 'E-commerce Transformation',
-      category: 'Web Design',
-      description: 'Complete brand and digital transformation for a leading fashion retailer',
+      id: 'north-republic',
+      title: 'North Republic',
+      category: 'Web App',
+      description: 'Modern web application with seamless user experience',
       image: projectEcommerce,
       results: '300% increase in conversions'
     },
     {
-      id: 'fintech-app',
-      title: 'FinTech Mobile Experience',
-      category: 'Mobile Design',
-      description: 'Revolutionary banking app that redefined user experience',
+      id: 'city-fresh',
+      title: 'City Fresh',
+      category: 'Web App',
+      description: 'Fresh food delivery platform with real-time tracking',
       image: projectFintech,
       results: '4.9★ App Store rating'
     },
     {
-      id: 'saas-platform',
-      title: 'SaaS Platform Redesign',
-      category: 'Product Design',
-      description: 'Enterprise dashboard that simplified complex workflows',
+      id: 'asker-sweets-ksa',
+      title: 'Asker Sweets KSA',
+      category: 'Web App',
+      description: 'Premium sweets ordering platform for Saudi market',
       image: projectSaas,
       results: '85% reduction in onboarding time'
+    },
+    {
+      id: 'cyra-clothing',
+      title: 'Cyra Clothing',
+      category: 'Shopify',
+      description: 'Fashion e-commerce store with custom Shopify design',
+      image: projectEcommerce,
+      results: '250% increase in sales'
+    },
+    {
+      id: 'fit-treat-uae',
+      title: 'Fit Treat UAE',
+      category: 'Mobile App',
+      description: 'Fitness and nutrition tracking mobile application',
+      image: projectFintech,
+      results: '50K+ downloads'
+    },
+    {
+      id: 'ajoba-technical',
+      title: 'Ajoba Technical Services UAE',
+      category: 'Branding',
+      description: 'Complete brand identity for technical services company',
+      image: projectSaas,
+      results: '400% brand recognition increase'
     }
   ];
 

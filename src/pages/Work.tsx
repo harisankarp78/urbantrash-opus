@@ -11,16 +11,6 @@ const Work = () => {
   const projects = [
     // Web App
     {
-      id: 'north-republic',
-      title: 'North Republic',
-      category: 'Web App',
-      year: '2024',
-      description: 'Modern web application with seamless user experience and advanced functionality',
-      image: projectEcommerce,
-      results: '300% increase in conversions',
-      tags: ['Web App', 'React', 'TypeScript']
-    },
-    {
       id: 'city-fresh',
       title: 'City Fresh',
       category: 'Web App',
@@ -31,36 +21,6 @@ const Work = () => {
       tags: ['Food Delivery', 'Real-time', 'Web App']
     },
     {
-      id: 'asker-sweets-ksa',
-      title: 'Asker Sweets KSA',
-      category: 'Web App',
-      year: '2024',
-      description: 'Premium sweets ordering platform tailored for the Saudi Arabian market',
-      image: projectSaas,
-      results: '85% reduction in ordering time',
-      tags: ['E-commerce', 'Regional', 'Web App']
-    },
-    {
-      id: 'educraft',
-      title: 'Educraft',
-      category: 'Web App',
-      year: '2024',
-      description: 'Educational platform with interactive learning tools and progress tracking',
-      image: projectEcommerce,
-      results: '200% increase in engagement',
-      tags: ['Education', 'Interactive', 'Learning']
-    },
-    {
-      id: 'campfly',
-      title: 'Campfly',
-      category: 'Web App',
-      year: '2024',
-      description: 'Camping and outdoor adventure booking platform with location services',
-      image: projectFintech,
-      results: '150% booking increase',
-      tags: ['Travel', 'Booking', 'Outdoor']
-    },
-    {
       id: 'remnant',
       title: 'Remnant',
       category: 'Web App',
@@ -69,26 +29,6 @@ const Work = () => {
       image: projectSaas,
       results: '95% customer satisfaction',
       tags: ['Marketplace', 'Sustainability', 'Fashion']
-    },
-    {
-      id: 'possum',
-      title: 'Possum',
-      category: 'Web App',
-      year: '2024',
-      description: 'Creative portfolio platform for digital artists and designers',
-      image: projectEcommerce,
-      results: '80% portfolio completion rate',
-      tags: ['Portfolio', 'Creative', 'Artists']
-    },
-    {
-      id: 'icebae',
-      title: 'Icebae',
-      category: 'Web App',
-      year: '2024',
-      description: 'Premium ice cream brand website with online ordering system',
-      image: projectFintech,
-      results: '250% online sales growth',
-      tags: ['Food & Beverage', 'E-commerce', 'Brand']
     },
     // Shopify
     {
@@ -110,93 +50,10 @@ const Work = () => {
       image: projectSaas,
       results: '400% conversion rate',
       tags: ['Luxury', 'Accessories', 'Shopify']
-    },
-    {
-      id: 'naadan-krunch',
-      title: 'Naadan Krunch',
-      category: 'Shopify',
-      year: '2024',
-      description: 'Traditional snacks store with modern Shopify storefront and inventory management',
-      image: projectFintech,
-      results: '300% order volume',
-      tags: ['Food', 'Traditional', 'Shopify']
-    },
-    // Mobile App
-    {
-      id: 'fit-treat-uae',
-      title: 'Fit Treat UAE',
-      category: 'Mobile App',
-      year: '2024',
-      description: 'Fitness and nutrition tracking mobile application with personalized workout plans',
-      image: projectFintech,
-      results: '50K+ downloads',
-      tags: ['Fitness', 'Health', 'React Native']
-    },
-    {
-      id: 'dwads',
-      title: 'DWADS',
-      category: 'Mobile App',
-      year: '2024',
-      description: 'Social networking mobile app connecting like-minded individuals worldwide',
-      image: projectSaas,
-      results: '4.8★ app rating',
-      tags: ['Social', 'Networking', 'Mobile']
-    },
-    {
-      id: 'qabool-foods',
-      title: 'Qabool Foods',
-      category: 'Mobile App',
-      year: '2024',
-      description: 'Food delivery mobile app with real-time tracking and payment integration',
-      image: projectEcommerce,
-      results: '1M+ orders processed',
-      tags: ['Food Delivery', 'Mobile', 'Real-time']
-    },
-    // Branding
-    {
-      id: 'ajoba-technical',
-      title: 'Ajoba Technical Services UAE',
-      category: 'Branding',
-      year: '2024',
-      description: 'Complete brand identity design for technical services company in UAE',
-      image: projectSaas,
-      results: '400% brand recognition',
-      tags: ['Brand Identity', 'Technical', 'UAE']
-    },
-    {
-      id: '360-business-solutions',
-      title: '360 Business Solutions UAE',
-      category: 'Branding',
-      year: '2024',
-      description: 'Comprehensive branding package for business consulting firm',
-      image: projectFintech,
-      results: '500% client inquiries',
-      tags: ['Consulting', 'Business', 'Brand Identity']
-    },
-    // Additional Projects
-    {
-      id: 'exi-sharks-uae',
-      title: 'Exi Sharks UAE',
-      category: 'Web App',
-      year: '2024',
-      description: 'Investment platform connecting entrepreneurs with potential investors',
-      image: projectEcommerce,
-      results: '200% investment matches',
-      tags: ['Investment', 'Platform', 'Business']
-    },
-    {
-      id: 'hakk-architecture',
-      title: 'Hakk Architecture',
-      category: 'Branding',
-      year: '2024',
-      description: 'Brand identity and portfolio website for architectural design firm',
-      image: projectSaas,
-      results: '300% project inquiries',
-      tags: ['Architecture', 'Portfolio', 'Branding']
     }
   ];
 
-  const categories = ['All', 'Web App', 'Shopify', 'Mobile App', 'Branding'];
+  const categories = ['All', 'Web App', 'Shopify'];
   
   const filteredProjects = selectedCategory === 'All' 
     ? projects 

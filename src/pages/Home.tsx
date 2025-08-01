@@ -9,15 +9,7 @@ import projectFintech from '@/assets/project-fintech.jpg';
 import projectSaas from '@/assets/project-saas.jpg';
 
 const Home = () => {
-  const projects = [
-    {
-      id: 'north-republic',
-      title: 'North Republic',
-      category: 'Web App',
-      description: 'Modern web application with seamless user experience',
-      image: projectEcommerce,
-      results: '300% increase in conversions'
-    },
+  const featuredProjects = [
     {
       id: 'city-fresh',
       title: 'City Fresh',
@@ -27,12 +19,12 @@ const Home = () => {
       results: '4.9★ App Store rating'
     },
     {
-      id: 'asker-sweets-ksa',
-      title: 'Asker Sweets KSA',
+      id: 'remnant',
+      title: 'Remnant',
       category: 'Web App',
-      description: 'Premium sweets ordering platform for Saudi market',
+      description: 'Modern web application with innovative user interface',
       image: projectSaas,
-      results: '85% reduction in onboarding time'
+      results: '200% user engagement increase'
     },
     {
       id: 'cyra-clothing',
@@ -43,21 +35,30 @@ const Home = () => {
       results: '250% increase in sales'
     },
     {
-      id: 'fit-treat-uae',
-      title: 'Fit Treat UAE',
-      category: 'Mobile App',
-      description: 'Fitness and nutrition tracking mobile application',
+      id: 'maurika-collections',
+      title: 'Maurika Collections',
+      category: 'Shopify',
+      description: 'Premium fashion collections with seamless shopping experience',
       image: projectFintech,
-      results: '50K+ downloads'
-    },
-    {
-      id: 'ajoba-technical',
-      title: 'Ajoba Technical Services UAE',
-      category: 'Branding',
-      description: 'Complete brand identity for technical services company',
-      image: projectSaas,
-      results: '400% brand recognition increase'
+      results: '180% conversion rate improvement'
     }
+  ];
+
+  const clientLogos = [
+    'North Republic',
+    'Asker Sweets KSA',
+    'Possum',
+    'Exi Sharks UAE',
+    '360 Business Solutions UAE',
+    'Icebae',
+    'Ajoba Technical Services UAE',
+    'Campfly',
+    'DWADS',
+    'Educraft',
+    'Fit Treat UAE',
+    'Hakk Architecture',
+    'Qabool Foods',
+    'Naadan Krunch'
   ];
 
   const services = [
@@ -163,8 +164,8 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {featuredProjects.map((project, index) => (
               <Link
                 key={project.id}
                 to={`/project/${project.id}`}
@@ -202,6 +203,34 @@ const Home = () => {
                 View All Projects <ArrowRight size={20} className="ml-2" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted Clients */}
+      <section className="py-24 px-6 sm:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Trusted by <span className="text-gradient">Industry Leaders</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              We've had the privilege to work with amazing companies across various industries
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
+            {clientLogos.map((client, index) => (
+              <div
+                key={client}
+                className="flex items-center justify-center p-4 h-20 card-premium group hover:scale-105 transition-all duration-300"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 text-center leading-tight">
+                  {client}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

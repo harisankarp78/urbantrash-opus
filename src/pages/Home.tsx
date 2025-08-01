@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, Zap, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import WorldMap from '@/components/WorldMap';
+
 import InteractiveShapes from '@/components/InteractiveShapes';
 import FloatingOrbs from '@/components/FloatingOrbs';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';

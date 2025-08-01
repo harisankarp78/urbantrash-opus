@@ -83,10 +83,6 @@ const Home = () => {
     <div className="pt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* World Map Background */}
-        <div className="absolute inset-0 opacity-20">
-          <WorldMap />
-        </div>
         
         {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-subtle/80" />

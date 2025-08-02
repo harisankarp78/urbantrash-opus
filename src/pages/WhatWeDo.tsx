@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
@@ -8,10 +10,14 @@ import {
   Zap, 
   Building, 
   Lightbulb,
-  ArrowRight
+  ArrowRight,
+  Filter
 } from 'lucide-react';
 import FloatingOrbs from '@/components/FloatingOrbs';
 import InteractiveShapes from '@/components/InteractiveShapes';
+import projectEcommerce from '@/assets/project-ecommerce.jpg';
+import projectFintech from '@/assets/project-fintech.jpg';
+import projectSaas from '@/assets/project-saas.jpg';
 
 const services = [
   {
@@ -59,6 +65,80 @@ const services = [
 ];
 
 const WhatWeDo = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  
+  const projects = [
+    // Web App
+    {
+      id: 'city-fresh',
+      title: 'City Fresh',
+      category: 'Web App',
+      year: '2024',
+      description: 'Fresh food delivery platform with real-time tracking and inventory management',
+      image: projectFintech,
+      results: '4.9★ user rating',
+      tags: ['Food Delivery', 'Real-time', 'Web App']
+    },
+    {
+      id: 'remnant',
+      title: 'Remnant',
+      category: 'Web App',
+      year: '2024',
+      description: 'Sustainable fashion marketplace connecting eco-conscious buyers and sellers',
+      image: projectSaas,
+      results: '95% customer satisfaction',
+      tags: ['Marketplace', 'Sustainability', 'Fashion']
+    },
+    // Shopify
+    {
+      id: 'cyra-clothing',
+      title: 'Cyra Clothing',
+      category: 'Shopify',
+      year: '2024',
+      description: 'Fashion e-commerce store with custom Shopify theme and enhanced functionality',
+      image: projectEcommerce,
+      results: '350% sales increase',
+      tags: ['Fashion', 'Shopify', 'E-commerce']
+    },
+    {
+      id: 'maurika-collections',
+      title: 'Maurika Collections',
+      category: 'Shopify',
+      year: '2024',
+      description: 'Luxury accessories store with premium Shopify design and seamless checkout',
+      image: projectSaas,
+      results: '400% conversion rate',
+      tags: ['Luxury', 'Accessories', 'Shopify']
+    },
+    // Mobile App
+    {
+      id: 'mobile-banking',
+      title: 'Mobile Banking',
+      category: 'Mobile App',
+      year: '2024',
+      description: 'Secure banking app with biometric authentication and real-time notifications',
+      image: projectFintech,
+      results: '99.9% uptime',
+      tags: ['Banking', 'Security', 'Mobile']
+    },
+    // Branding
+    {
+      id: 'tech-startup',
+      title: 'Tech Startup',
+      category: 'Branding',
+      year: '2024',
+      description: 'Complete brand identity design for innovative tech startup',
+      image: projectSaas,
+      results: '300% brand recognition',
+      tags: ['Identity', 'Tech', 'Startup']
+    }
+  ];
+
+  const categories = ['All', 'Web App', 'Shopify', 'Mobile App', 'Branding'];
+  
+  const filteredProjects = selectedCategory === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === selectedCategory);
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <FloatingOrbs />
@@ -113,6 +193,121 @@ const WhatWeDo = () => {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Work Section */}
+      <section className="relative py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gradient animate-slide-up">
+              Our Work
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              A showcase of our exceptional projects across various industries and technologies
+            </p>
+          </div>
+
+          {/* Filter Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-6 mb-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <div className="flex items-center gap-2">
+              <Filter size={20} className="text-primary" />
+              <span className="font-medium">Filter by category:</span>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={category === selectedCategory ? 'default' : 'outline'}
+                  size="sm"
+                  className={category === selectedCategory ? 'btn-premium' : 'btn-ghost-premium'}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {filteredProjects.map((project, index) => (
+              <Link
+                key={project.id}
+                to={`/project/${project.id}`}
+                className="group block animate-slide-up"
+                style={{ animationDelay: `${0.6 + index * 0.1}s` }}
+              >
+                <div className="card-premium overflow-hidden group-hover:scale-[1.02] transition-all duration-700">
+                  {/* Project Image */}
+                  <div className="relative aspect-video overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-6 left-6">
+                      <span className="px-3 py-1 bg-background/20 backdrop-blur-md border border-primary/20 rounded-full text-sm font-medium text-primary">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Year Badge */}
+                    <div className="absolute top-6 right-6">
+                      <span className="px-3 py-1 bg-background/20 backdrop-blur-md border border-border rounded-full text-sm font-medium">
+                        {project.year}
+                      </span>
+                    </div>
+
+                    {/* View Project Button */}
+                    <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Button size="sm" className="btn-premium">
+                        View Project <ArrowRight size={16} className="ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Project Info */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+                      {project.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-muted/50 border border-border rounded-full text-xs font-medium text-muted-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Results */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-accent">{project.results}</span>
+                      <ArrowRight size={16} className="text-primary group-hover:translate-x-2 transition-transform duration-300" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* View All Work Button */}
+          <div className="text-center">
+            <Button asChild size="lg" variant="outline" className="btn-ghost-premium h-14 px-8">
+              <Link to="/work">View All Our Work</Link>
+            </Button>
           </div>
         </div>
       </section>

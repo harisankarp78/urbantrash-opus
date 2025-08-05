@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation';
 import ContactModal from './ContactModal';
+import Footer from './Footer';
 
 const Layout = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -24,6 +25,7 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
+      <Footer />
       <ContactModal 
         isOpen={isContactModalOpen} 
         onClose={() => setIsContactModalOpen(false)} 

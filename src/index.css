@@ -109,6 +109,42 @@
   .animate-slide-up {
     animation: slide-up 0.6s ease-out;
   }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-stagger-fade {
+    opacity: 0;
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 8s ease-in-out infinite;
+    background-size: 400% 400%;
+  }
+
+  .animate-text-shimmer {
+    animation: text-shimmer 3s ease-in-out infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply transform -translate-y-2 shadow-2xl;
+  }
+
+  .parallax-slow {
+    transform: translateZ(0);
+    will-change: transform;
+  }
 }
 
 @layer utilities {
@@ -148,4 +184,39 @@
     opacity: 1; 
     transform: translateY(0); 
   }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes text-shimmer {
+  0%, 100% {
+    background-position: 200% center;
+  }
+  50% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(2deg); }
+  66% { transform: translateY(-25px) rotate(-1deg); }
 }

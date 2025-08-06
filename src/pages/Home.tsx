@@ -224,7 +224,7 @@ const Home = () => {
       </section>
 
       {/* Trusted Clients */}
-      <section className="py-24 px-6 sm:px-8">
+      <section className="py-24 px-6 sm:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -235,18 +235,31 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
-            {clientLogos.map((client, index) => (
-              <div
-                key={client}
-                className="flex items-center justify-center p-4 h-20 card-premium group hover:scale-105 transition-all duration-300"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 text-center leading-tight">
-                  {client}
-                </span>
-              </div>
-            ))}
+          <div className="relative">
+            <div className="animate-scroll-x flex gap-8 whitespace-nowrap">
+              {/* First set of logos */}
+              {clientLogos.map((client, index) => (
+                <div
+                  key={`first-${client}`}
+                  className="flex-shrink-0 flex items-center justify-center p-4 h-20 w-48 card-premium group hover:scale-105 transition-all duration-300"
+                >
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 text-center leading-tight">
+                    {client}
+                  </span>
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {clientLogos.map((client, index) => (
+                <div
+                  key={`second-${client}`}
+                  className="flex-shrink-0 flex items-center justify-center p-4 h-20 w-48 card-premium group hover:scale-105 transition-all duration-300"
+                >
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 text-center leading-tight">
+                    {client}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

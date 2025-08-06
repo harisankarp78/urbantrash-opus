@@ -125,6 +125,14 @@ export default {
 					'100%': {
 						'background-position': '-200% 0'
 					}
+				},
+				'scroll-x': {
+					'0%': {
+						transform: 'translateX(0)'
+					},
+					'100%': {
+						transform: 'translateX(-50%)'
+					}
 				}
 			},
 			animation: {
@@ -133,7 +141,8 @@ export default {
 				'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
 				'stagger-fade': 'stagger-fade 0.6s ease-out forwards',
 				'gradient-x': 'gradient-x 8s ease-in-out infinite',
-				'shimmer': 'shimmer 3s ease-in-out infinite'
+				'shimmer': 'shimmer 3s ease-in-out infinite',
+				'scroll-x': 'scroll-x 30s linear infinite'
 			}
 		}
 	},

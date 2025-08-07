@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import WhatWeDo from "./pages/WhatWeDo";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
@@ -24,6 +25,7 @@ const App = () => (
             <Route index element={<Home />} />
             <Route path="work" element={<Work />} />
             <Route path="what-we-do" element={<WhatWeDo />} />
+            <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="project/:id" element={<ProjectDetail />} />
           </Route>

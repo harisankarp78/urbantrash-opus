@@ -261,3 +261,30 @@
   33% { transform: translateY(-15px) rotate(2deg); }
   66% { transform: translateY(-25px) rotate(-1deg); }
 }
+
+/* Kanban Board Custom Styles */
+.kanban-flow .react-flow__controls-custom {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+}
+
+.kanban-flow .react-flow__controls-custom button {
+  background: hsl(var(--background));
+  border: none;
+  color: hsl(var(--foreground));
+}
+
+.kanban-flow .react-flow__controls-custom button:hover {
+  background: hsl(var(--muted));
+}
+
+.kanban-flow .react-flow__edge-path {
+  stroke: hsl(var(--primary));
+  stroke-width: 2;
+}
+
+.kanban-flow .react-flow__node-group {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+}

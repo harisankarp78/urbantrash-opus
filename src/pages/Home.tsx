@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 
 import InteractiveShapes from '@/components/InteractiveShapes';
 import FloatingOrbs from '@/components/FloatingOrbs';
+import KanbanBoard from '@/components/KanbanBoard';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';
 import projectFintech from '@/assets/project-fintech.jpg';
 import projectSaas from '@/assets/project-saas.jpg';
@@ -81,7 +82,7 @@ const Home = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
+      {/* Hero Section with Kanban Board */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         
         {/* Enhanced Background with animated gradients */}
@@ -89,33 +90,33 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 animate-gradient-x" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-glow opacity-20 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-glow opacity-15 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-3xl opacity-30 animate-pulse" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 text-center">
-          <div className="space-y-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="space-y-12">
             {/* Animated main heading */}
-            <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
-              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight">
-                We Build
+            <div className="text-center animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Your Project,
                 <span className="block text-gradient text-glow animate-text-shimmer bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                  Tech Solutions
+                  Our Process
                 </span>
               </h1>
-            </div>
-            
-            {/* Animated subtitle */}
-            <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '0.4s' }}>
-              <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-                Tech consultancy delivering comprehensive mobile apps, web apps, and business automation solutions for modern enterprises.
+              <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+                Professional project management and development workflow that delivers results on time and within budget.
               </p>
             </div>
             
-            {/* Animated CTA buttons */}
-            <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s' }}>
+            {/* Kanban Board */}
+            <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '0.4s' }}>
+              <KanbanBoard />
+            </div>
+            
+            {/* CTA buttons */}
+            <div className="text-center animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s' }}>
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <Button asChild size="lg" className="btn-premium h-14 px-8 text-lg hover-lift">
-                  <Link to="/work">
-                    View Our Work <ArrowRight size={20} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  <Link to="/contact">
+                    Start Your Project <ArrowRight size={20} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </Button>
                 <Button 
@@ -124,7 +125,7 @@ const Home = () => {
                   size="lg" 
                   className="btn-ghost-premium h-14 px-8 text-lg hover-lift"
                 >
-                  <Link to="/contact">Start a Project</Link>
+                  <Link to="/work">View Our Work</Link>
                 </Button>
               </div>
             </div>

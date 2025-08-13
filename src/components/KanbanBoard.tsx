@@ -12,6 +12,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
 
 const initialNodes: Node[] = [
   // Discovery Column
@@ -54,7 +55,7 @@ const initialNodes: Node[] = [
       timeline: '1-2 weeks'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
   {
     id: 'discovery-2',
@@ -68,7 +69,7 @@ const initialNodes: Node[] = [
       timeline: '1 week'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
   {
     id: 'discovery-3',
@@ -82,7 +83,7 @@ const initialNodes: Node[] = [
       timeline: '3-5 days'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
 
   // Development Column
@@ -125,7 +126,7 @@ const initialNodes: Node[] = [
       timeline: '4-6 weeks'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
   {
     id: 'development-2',
@@ -139,7 +140,7 @@ const initialNodes: Node[] = [
       timeline: '3-5 weeks'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
   {
     id: 'development-3',
@@ -153,7 +154,7 @@ const initialNodes: Node[] = [
       timeline: '1-2 weeks'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
   {
     id: 'development-4',
@@ -167,7 +168,7 @@ const initialNodes: Node[] = [
       timeline: '2-3 weeks'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
 
   // Deployment Column
@@ -210,7 +211,7 @@ const initialNodes: Node[] = [
       timeline: '3-5 days'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
   {
     id: 'deployment-2',
@@ -224,7 +225,7 @@ const initialNodes: Node[] = [
       timeline: '1 week'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
   {
     id: 'deployment-3',
@@ -238,7 +239,7 @@ const initialNodes: Node[] = [
       timeline: 'Ongoing'
     },
     type: 'kanbanCard',
-    draggable: false,
+    draggable: true,
   },
 ];
 
@@ -320,11 +321,69 @@ const nodeTypes = {
 const KanbanBoard = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const { toast } = useToast();
   
   const onConnect = useCallback(
     (params: Edge | Connection) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
+
+  const handleNodeDragStop = useCallback((event: any, node: Node) => {
+    if (node.type !== 'kanbanCard') return;
+
+    const nodeRect = event.target.getBoundingClientRect();
+    const nodeCenter = {
+      x: nodeRect.left + nodeRect.width / 2,
+      y: nodeRect.top + nodeRect.height / 2
+    };
+
+    // Find which column the card was dropped in
+    const columnHeaders = ['discovery-header', 'development-header', 'deployment-header'];
+    let targetColumn = null;
+
+    for (const columnId of columnHeaders) {
+      const columnElement = document.querySelector(`[data-id="${columnId}"]`);
+      if (columnElement) {
+        const columnRect = columnElement.getBoundingClientRect();
+        if (nodeCenter.x >= columnRect.left && 
+            nodeCenter.x <= columnRect.right && 
+            nodeCenter.y >= columnRect.top && 
+            nodeCenter.y <= columnRect.bottom) {
+          targetColumn = columnId;
+          break;
+        }
+      }
+    }
+
+    if (targetColumn && node.parentId !== targetColumn) {
+      // Update the node's parent and position
+      setNodes((nds) => 
+        nds.map((n) => {
+          if (n.id === node.id) {
+            return {
+              ...n,
+              parentId: targetColumn,
+              position: { x: 20, y: 100 }, // Reset position within new column
+              extent: 'parent' as const
+            };
+          }
+          return n;
+        })
+      );
+
+      // Show success toast
+      const columnNames = {
+        'discovery-header': 'Discovery & Planning',
+        'development-header': 'Development',
+        'deployment-header': 'Deployment & Launch'
+      };
+      
+      toast({
+        title: "Task moved successfully!",
+        description: `"${node.data.title}" moved to ${columnNames[targetColumn as keyof typeof columnNames]}`,
+      });
+    }
+  }, [setNodes, toast]);
 
   return (
     <div className="w-full h-[700px] rounded-xl border border-border bg-background/50 backdrop-blur-sm">
@@ -334,14 +393,15 @@ const KanbanBoard = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        onNodeDragStop={handleNodeDragStop}
         nodeTypes={nodeTypes}
         fitView
         fitViewOptions={{ padding: 0.2 }}
         proOptions={{ hideAttribution: true }}
-        elementsSelectable={false}
-        nodesDraggable={false}
+        elementsSelectable={true}
+        nodesDraggable={true}
         nodesConnectable={false}
-        panOnDrag={true}
+        panOnDrag={false}
         zoomOnScroll={true}
         zoomOnDoubleClick={false}
         className="kanban-flow"

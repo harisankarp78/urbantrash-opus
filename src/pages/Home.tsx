@@ -81,7 +81,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-32">
       {/* Hero Section with Kanban Board */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         
